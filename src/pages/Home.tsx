@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Home = () => (
-    <p>Page Home</p>
+    <h1 className="page-header">Page Home</h1>
 );

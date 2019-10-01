@@ -8,10 +8,10 @@ import { Create } from './pages/Create';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
       <Header></Header>
-       <div>
+       <div className="view">
          <Route path="/" exact component={Home} />
          <Route path="/create" component={Create} />
        </div>
