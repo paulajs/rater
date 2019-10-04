@@ -1,4 +1,5 @@
 import React from 'react';
+import { RatingStar } from '../components/RatingStar';
 
 export const Create = () => {
     return (
@@ -19,12 +20,21 @@ export const Create = () => {
                     <input type="text" name="Where"/>
                 </label>
                 <label>
-                    Rating:
-                    <input type="radio" name="rating" value="1"/> One
-                    <input type="radio" name="rating" value="2"/> Two
-                    <input type="radio" name="rating" value="3"/> Three
-                    <input type="radio" name="rating" value="4"/> Four
-                    <input type="radio" name="rating" value="5"/> Five
+                    <h2>Your rating</h2>
+                    <div className="rating">
+                    <RatingStar id="-5"></RatingStar>
+                    <RatingStar id="-4"></RatingStar>
+                    <RatingStar id="-3"></RatingStar>
+                    <RatingStar id="-2"></RatingStar>
+                    <RatingStar id="-1"></RatingStar>
+                    <RatingStar id="0"></RatingStar>
+                    <RatingStar id="1"></RatingStar>
+                    <RatingStar id="2"></RatingStar>
+                    <RatingStar id="3"></RatingStar>
+                    <RatingStar id="4"></RatingStar>
+                    <RatingStar id="5"></RatingStar>
+                    
+                    </div>              
                 </label>
                 <label>
                     Why:
