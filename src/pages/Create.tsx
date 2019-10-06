@@ -1,7 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RatingStar } from '../components/RatingStar';
+/*
+    <RatingStar id="-3" class="ratingStar minus-3"></RatingStar>
+    <RatingStar id="-2" class="ratingStar minus-2"></RatingStar>
+    <RatingStar id="-1" class="ratingStar minus-1"></RatingStar>
+    <RatingStar id="0" class="ratingStar zero"></RatingStar>
+    <RatingStar id="1" class="ratingStar plus1"></RatingStar>
+    <RatingStar id="2" class="ratingStar plus2"></RatingStar>
+    <RatingStar id="3" class="ratingStar plus3"></RatingStar> 
+*/
 
 export const Create = () => {
+    let stars = [];
+    const noRatingClass = 'star-rating-none';
+    const [starColor, setStarColor] = useState(noRatingClass);
+    for (let index = 1; index < 8; index++) {
+        const id = 'star'+ index;
+        const rating = index-4;
+
+        const onStarEnter = () => setStarColor(`star-rating-${index}`);
+        const onStarLeave = () => setStarColor(noRatingClass);
+
+        stars.push(
+            <RatingStar
+                id = {id}
+                key = {id}
+                number = {rating}
+                fillClass = {starColor}
+                onMouseEnter = {onStarEnter}
+                onMouseLeave = {onStarLeave}
+            ></RatingStar>
+        );      
+    }
     return (
         <div>
             <h1 className="page-header">Page Create</h1>
@@ -22,18 +52,7 @@ export const Create = () => {
                 <label>
                     <h2>Your rating</h2>
                     <div className="rating">
-                    <RatingStar id="-5"></RatingStar>
-                    <RatingStar id="-4"></RatingStar>
-                    <RatingStar id="-3"></RatingStar>
-                    <RatingStar id="-2"></RatingStar>
-                    <RatingStar id="-1"></RatingStar>
-                    <RatingStar id="0"></RatingStar>
-                    <RatingStar id="1"></RatingStar>
-                    <RatingStar id="2"></RatingStar>
-                    <RatingStar id="3"></RatingStar>
-                    <RatingStar id="4"></RatingStar>
-                    <RatingStar id="5"></RatingStar>
-                    
+                        { stars }          
                     </div>              
                 </label>
                 <label>

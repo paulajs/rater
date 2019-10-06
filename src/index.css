@@ -67,3 +67,29 @@
     transform: translateX(-50%);
 }
 
+
+.star-rating-1 button svg{
+  fill: #aa0303;
+}
+.star-rating-2 button svg{
+  fill: #ff2300;
+}
+.star-rating-3 button svg{
+  fill: #ff8d00;
+}
+.star-rating-4 button svg{
+  fill: #ffc800;
+}
+.star-rating-5 button svg{
+  fill: #b5ec0a;
+}
+.star-rating-6 button svg{
+  fill: #67da10;
+}
+.star-rating-7 button svg{
+  fill: #07c70d;
+}
+.star-rating-none{
+  fill: #cccccc;
+}
+
