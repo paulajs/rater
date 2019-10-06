@@ -1,25 +1,44 @@
 import React, { useState } from 'react';
 import { RatingStar } from '../components/RatingStar';
-/*
-    <RatingStar id="-3" class="ratingStar minus-3"></RatingStar>
-    <RatingStar id="-2" class="ratingStar minus-2"></RatingStar>
-    <RatingStar id="-1" class="ratingStar minus-1"></RatingStar>
-    <RatingStar id="0" class="ratingStar zero"></RatingStar>
-    <RatingStar id="1" class="ratingStar plus1"></RatingStar>
-    <RatingStar id="2" class="ratingStar plus2"></RatingStar>
-    <RatingStar id="3" class="ratingStar plus3"></RatingStar> 
-*/
+
+interface State {
+    starColor: string,
+    currentHoverRating: number | null, 
+}
+
+const noRatingClass = 'star-rating-none';
 
 export const Create = () => {
+    const initialState: State = {
+        starColor: noRatingClass,
+        currentHoverRating: null
+    }
     let stars = [];
-    const noRatingClass = 'star-rating-none';
-    const [starColor, setStarColor] = useState(noRatingClass);
+    const [state, setState] = useState(initialState);
     for (let index = 1; index < 8; index++) {
         const id = 'star'+ index;
         const rating = index-4;
+        let starColor = noRatingClass;
 
-        const onStarEnter = () => setStarColor(`star-rating-${index}`);
-        const onStarLeave = () => setStarColor(noRatingClass);
+        if(state.currentHoverRating !== null && rating <= state.currentHoverRating){
+            starColor = `star-rating-${state.currentHoverRating+4}`
+        }
+
+        const onStarEnter = () => {
+            setState({
+                ...state,
+                currentHoverRating: rating,
+                starColor: `star-rating-${index}`,
+            });
+        }
+        
+        const onStarLeave = () => {
+            setState({
+                ...state,
+                starColor: noRatingClass,
+                currentHoverRating: null,
+            })
+        };
 
         stars.push(
             <RatingStar
@@ -50,7 +69,7 @@ export const Create = () => {
                     <input type="text" name="Where"/>
                 </label>
                 <label>
-                    <h2>Your rating</h2>
+                    <h2>Your rating {state.currentHoverRating}</h2>
                     <div className="rating">
                         { stars }          
                     </div>              

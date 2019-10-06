@@ -55,7 +55,7 @@
   width: 55px;
   background: none;
   border: none;
-  margin: 1px;
+  margin: 0 -4px;
   position: relative;
 }
 .ratingStar p {
