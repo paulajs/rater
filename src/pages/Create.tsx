@@ -4,6 +4,7 @@ import { RatingStar } from '../components/RatingStar';
 interface State {
     starColor: string,
     currentHoverRating: number | null, 
+    selectedRating: number | null,
 }
 
 const noRatingClass = 'star-rating-none';
@@ -11,7 +12,8 @@ const noRatingClass = 'star-rating-none';
 export const Create = () => {
     const initialState: State = {
         starColor: noRatingClass,
-        currentHoverRating: null
+        currentHoverRating: null,
+        selectedRating: null,
     }
     let stars = [];
     const [state, setState] = useState(initialState);
@@ -20,8 +22,19 @@ export const Create = () => {
         const rating = index-4;
         let starColor = noRatingClass;
 
-        if(state.currentHoverRating !== null && rating <= state.currentHoverRating){
-            starColor = `star-rating-${state.currentHoverRating+4}`
+        if(state.selectedRating !== null && rating <= state.selectedRating){
+            starColor = `star-rating-${state.selectedRating+4}`
+        }else{
+            if(state.currentHoverRating !== null && rating <= state.currentHoverRating){
+                starColor = `star-rating-${state.currentHoverRating+4}`
+            }
+        }
+
+        const onStarClick = () => {
+            setState({
+                ...state,
+                selectedRating: rating,
+            });
         }
 
         const onStarEnter = () => {
@@ -48,6 +61,7 @@ export const Create = () => {
                 fillClass = {starColor}
                 onMouseEnter = {onStarEnter}
                 onMouseLeave = {onStarLeave}
+                onClick = {onStarClick}
             ></RatingStar>
         );      
     }
