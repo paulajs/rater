@@ -6,19 +6,17 @@ interface Props {
     fillClass: string,
     onMouseEnter: () => void,
     onMouseLeave: () => void,
-    onClick: () => void,
+    onStarClick: () => void,
 }
 
-export function RatingStar(props: Props) {
-    // const classes = `ratingStart ${}`
-
+export const RatingStar = (props: Props) =>  {
     return (
         <div
             className={"ratingStar " + props.fillClass}
             id={props.id}
             onMouseEnter={props.onMouseEnter}
             onMouseLeave={props.onMouseLeave}
-            onClick={props.onClick}
+            onClick={props.onStarClick}
         >
             <div>
                 <svg version="1.1" className="star" x="0px" y="0px" viewBox="0 0 135.5 128.9">

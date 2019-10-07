@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Open+Sans&display=swap");
 
+body{
+  margin: 0;
+  padding: 0;
+}
 /*------------------Header------------------*/
 
+.menu{
+  background: #4d4d4d;
+  padding: 7px 0;
+}
 .menu ul {
   list-style: none;
   display: flex;
@@ -12,23 +20,33 @@
 }
 
 .menu ul li a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .menu ul li a:visited {
-  color: red;
+  color: white;
 }
 
 /*------------------Page------------------ */
 .view {
   width: 100%;
-  border: 2px solid black;
-  background: #cef4f6;
   display: flex;
   justify-content: center;
 }
 .page-header {
   font-family: "Roboto Slab", serif;
+  font-size: 44px;
+}
+.page-create {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  align-items: center;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 66px;
+  margin-top: 4vh;
 }
 
 /*------------------Form------------------*/
@@ -37,63 +55,19 @@
   flex-direction: column;
 }
 .create-rating label {
-  margin: 24px 0;
+  margin: 10px 0;
+  font-family: "Open Sans", sans-serif;
 }
 
-/*------------------Rating star------------------*/
-.rating {
-  display: flex;
-  flex-direction: row;
-}
-.rating h2 {
+.create-rating textarea {
+  height: 51px;
   width: 100%;
 }
-.ratingStar:hover{
-  transform: scale(1.3);
-  cursor: pointer;
-}
-.ratingStar svg {
-  width: 100%;
-}
-.ratingStar div {
-  width: 55px;
-  background: none;
-  border: none;
-  margin: 0 -3px;
-  position: relative;
-}
-.ratingStar p {
-  position: absolute;
-    top: 3px;
-    color: white;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
-
-.star-rating-1 div svg{
-  fill: #aa0303;
+.create-rating .submit{
+  font-family: "Roboto Slab", serif;
+  background: #4d4d4d;
+  color:white;
+  font-size: 24px;
+  padding: 9px 0;
 }
-.star-rating-2 div svg{
-  fill: #ff2300;
-}
-.star-rating-3 div svg{
-  fill: #ff8d00;
-}
-.star-rating-4 div svg{
-  fill: #ffc800;
-}
-.star-rating-5 div svg{
-  fill: #b5ec0a;
-}
-.star-rating-6 div svg{
-  fill: #67da10;
-}
-.star-rating-7 div svg{
-  fill: #07c70d;
-}
-.star-rating-none{
-  fill: #cccccc;
-}
-
